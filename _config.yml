@@ -1,9 +1,0 @@
-title: DASEIN 的随手记
-description: 学习 · 投资 · 自省 · 代码片段
-baseurl: ""
-url: "https://dasein16615.github.io"
-author: DASEIN1011
-
-markdown: kramdown
-permalink: /:year/:month/:day/:title/
-timezone: Asia/Shanghai

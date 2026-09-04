@@ -1,0 +1,44 @@
+---
+---
+<div id="search-overlay" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm items-start justify-center pt-32">
+  <div class="bg-paper dark:bg-paper-dark border border-zinc-200 dark:border-zinc-700 rounded-2xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden">
+    <div class="p-4 border-b border-zinc-200/50 dark:border-zinc-700/50 flex items-center gap-3">
+      <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="探索..."
+        autocomplete="off"
+        class="flex-1 bg-transparent border-none focus:outline-none text-ink dark:text-ink-dark font-serif"
+      />
+      <kbd class="text-[10px] uppercase tracking-widest text-zinc-400 border border-zinc-300 dark:border-zinc-600 px-1.5 py-0.5 rounded">ESC</kbd>
+    </div>
+    <div id="search"></div>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('search-overlay');
+  const input = document.getElementById('search-input');
+  const trigger = document.getElementById('search-trigger');
+
+  const open = () => {
+    overlay?.classList.remove('hidden');
+    overlay?.classList.add('flex');
+    setTimeout(() => input?.focus(), 50);
+  };
+  const close = () => {
+    overlay?.classList.add('hidden');
+    overlay?.classList.remove('flex');
+    if (input) input.value = '';
+  };
+
+  trigger?.addEventListener('click', open);
+  overlay?.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); open(); }
+  });
+</script>

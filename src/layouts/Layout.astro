@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Search from '../components/Search.astro';
+import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
+
+const { title, description = '此在 —— Dasein 的数字笔记' } = Astro.props;
+const siteTitle = title ? `${title} | Dasein` : 'Dasein';
+---
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{siteTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Dasein" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script is:inline>
+      (function () {
+        const t = localStorage.getItem('theme');
+        const sys = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (t === 'dark' || (!t && sys)) document.documentElement.classList.add('dark');
+      })();
+    </script>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <PagefindConfig />
+  </head>
+
+  <body>
+    <nav class="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-40">
+      <div class="flex items-center gap-2 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-xl
+                  border border-white/40 dark:border-white/10
+                  px-3 py-2 rounded-full shadow-lg">
+        <a href="/" aria-label="首页" class="w-8 h-8 flex items-center justify-center
+           bg-ink dark:bg-ink-dark text-paper dark:text-paper-dark
+           rounded-full font-serif italic text-sm">D</a>
+        <button id="search-trigger" aria-label="搜索" class="hidden md:flex items-center gap-2 px-3 py-1 text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400
+               hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          探索
+        </button>
+        <div class="hidden md:flex items-center space-x-4 px-4 text-[10px] uppercase tracking-widest
+ font-medium text-zinc-500 dark:text-zinc-400 border-l border-zinc-300/40 dark:border-zinc-600/40 pl-4 ml-1">
+          <a href="/" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">Home</a>
+          <a href="/posts" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">Archive</a>
+          <a href="/about" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">About</a>
+          <a href="/rss.xml" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">RSS</a>
+        </div>
+        <ThemeToggle />
+      </div>
+    </nav>
+
+    <main class="pt-24 md:pt-32">
+      <slot />
+    </main>
+
+    <Search />
+
+    <footer class="mt-32 pb-12 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">
+      <div class="max-w-2xl mx-auto flex flex-col items-center gap-3">
+        <div class="w-px h-12 bg-gradient-to-b from-scholar-gold dark:from-scholar-goldDark to-transparent"></div>
+        <p>Dasein © 2026 · 此在</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/pagefind/pagefind-ui.js"></script>
+  </body>
+</html>

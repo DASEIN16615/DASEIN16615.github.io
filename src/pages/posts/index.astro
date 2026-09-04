@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const byYear = posts.reduce((acc, p) => {
+  const y = p.data.pubDate.getFullYear();
+  (acc[y] ||= []).push(p);
+  return acc;
+}, {} as Record<number, typeof posts>);
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+
+const yearsActive = new Set(years).size;
+---
+<Layout title="Archive">
+  <section class="prose-custom py-8">
+    <h1>Archive</h1>
+    <p class="text-sm text-zinc-500 italic">{posts.length} 篇文章</p>
+    {years.map((year) => (
+      <div class="mt-12">
+        <h2 class="text-2xl font-serif italic text-scholar-gold dark:text-scholar-goldDark">{year}</h2>
+        <ul class="mt-4 space-y-4">
+          {byYear[year].map((post) => (
+            <li class="flex items-baseline gap-4">
+              <time class="text-[10px] uppercase tracking-widest text-zinc-400 font-mono whitespace-nowrap">
+                {post.data.pubDate.toISOString().slice(5, 10)}
+              </time>
+              <a href={`/posts/${post.id}`} class="flex-1 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
+                {post.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+</Layout>
