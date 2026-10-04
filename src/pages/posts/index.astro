@@ -1,19 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const posts = (await getCollection('blog'))
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((p: CollectionEntry<'blog'>) => !p.data.draft)
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
-const byYear = posts.reduce((acc, p) => {
+const byYear = posts.reduce((acc, p: CollectionEntry<'blog'>) => {
   const y = p.data.pubDate.getFullYear();
   (acc[y] ||= []).push(p);
   return acc;
-}, {} as Record<number, typeof posts>);
+}, {} as Record<number, CollectionEntry<'blog'>[]>);
 const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
-
-const yearsActive = new Set(years).size;
 ---
 <Layout title="Archive">
   <section class="prose-custom py-8">

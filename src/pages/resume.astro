@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="简历" description="DASEIN 的个人工程简历与技能画像">
+  <div class="max-w-3xl mx-auto px-6 py-8">
+    <!-- 顶部操作栏 (打印时隐藏) -->
+    <div class="print:hidden flex items-center justify-between mb-8 pb-4 border-b border-zinc-200/60 dark:border-zinc-800">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs text-zinc-500 dark:text-zinc-400 font-mono">Curriculum Vitae · 2026</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button
+          onclick="window.print()"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono bg-scholar-gold/10 hover:bg-scholar-gold/20 text-scholar-gold dark:text-scholar-goldDark transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z"/>
+          </svg>
+          打印 / 导出 PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- 简历主容器 -->
+    <div class="space-y-10 font-serif leading-relaxed text-ink dark:text-ink-dark print:text-black">
+      <!-- 个人信息头部 -->
+      <header class="border-b border-zinc-200/80 dark:border-zinc-800 pb-6 print:pb-4">
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight italic font-serif">
+              DASEIN<span class="text-scholar-gold dark:text-scholar-goldDark font-normal">.</span>
+            </h1>
+            <p class="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mt-1 font-mono">
+              计算机科学与技术专业本科在读 (2025级 / 大二) · 北京
+            </p>
+          </div>
+          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 space-y-1 text-left md:text-right">
+            <div>GitHub: <a href="https://github.com/DASEIN16615" target="_blank" class="text-scholar-gold hover:underline">@DASEIN16615</a></div>
+            <div>Blog: <a href="https://dasein16615.github.io" target="_blank" class="hover:underline">dasein16615.github.io</a></div>
+          </div>
+        </div>
+        <p class="mt-4 text-xs md:text-sm text-zinc-600 dark:text-zinc-300 print:text-zinc-700 italic">
+          专注于计算机底层系统机制、AI-Native 智能体工程与稳健低频量化研究。崇尚“单主线铁律”，坚持手写底层核心逻辑与工程闭环。
+        </p>
+      </header>
+
+      <!-- 1. 教育背景 -->
+      <section>
+        <h2 class="text-base font-bold uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-mono mb-4 flex items-center gap-2">
+          <span>01. 教育背景 / Education</span>
+          <span class="flex-1 h-px bg-scholar-gold/20"></span>
+        </h2>
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+          <div class="font-bold text-sm">首都师范大学 (Capital Normal University)</div>
+          <div class="text-xs font-mono text-zinc-500">2025.09 — 2029.06 (统招全日制本科)</div>
+        </div>
+        <div class="text-xs text-zinc-600 dark:text-zinc-300">
+          <strong>专业：</strong>计算机科学与技术 (CS) · <strong>阶段：</strong>大二在读
+        </div>
+        <div class="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+          <strong>核心专业课程：</strong>高等数学、线性代数、计算机系统基础 (CSAPP)、数据结构与算法、图论、Linux 系统编程、汇编语言、数字逻辑。
+        </div>
+      </section>
+
+      <!-- 2. 专业技能矩阵 -->
+      <section>
+        <h2 class="text-base font-bold uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-mono mb-4 flex items-center gap-2">
+          <span>02. 核心技术栈与工程能力 / Skills</span>
+          <span class="flex-1 h-px bg-scholar-gold/20"></span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-3.5 rounded-xl border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
+            <div class="font-bold text-zinc-800 dark:text-zinc-200 font-mono mb-1.5 text-xs text-scholar-gold">
+              ■ 系统与底层语言 (C / C++)
+            </div>
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              深入理解指针与内存模型，无黑盒纯手写线性表、平衡树与图算法；熟练掌握 POSIX 系统调用与 Linux 环境开发；遵循 PTA 平台严苛规范与边界用例防御。
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
+            <div class="font-bold text-zinc-800 dark:text-zinc-200 font-mono mb-1.5 text-xs text-scholar-gold">
+              ■ AI-Native 与自主智能体 (Agents)
+            </div>
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              精通 AI 辅助编程规范 (Vibe Coding)；掌握多智能体编排与工作流设计；具备长短期记忆隔离、NTFS 物理映射同源同步与自定义 Skill 封装经验。
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
+            <div class="font-bold text-zinc-800 dark:text-zinc-200 font-mono mb-1.5 text-xs text-scholar-gold">
+              ■ 量化金融与自动化流水线 (Python)
+            </div>
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              熟悉 Pandas/NumPy 进行金融时序分析；自主设计跨市场宽基估值打分与动态定投算法；基于 GitHub Actions 与 Cloudflare 实现云端零维护定时流水线。
+            </p>
+          </div>
+
+          <div class="p-3.5 rounded-xl border border-zinc-200/60 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30">
+            <div class="font-bold text-zinc-800 dark:text-zinc-200 font-mono mb-1.5 text-xs text-scholar-gold">
+              ■ 数理思维与工程工具链
+            </div>
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              具备扎实的微积分与极限推导功底；熟练掌握 Git 版本控制、Astro/Tailwind 现代化静态站架构构建；长期坚持《经济学人》英文深度原典阅读。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 核心项目经历 -->
+      <section>
+        <h2 class="text-base font-bold uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-mono mb-4 flex items-center gap-2">
+          <span>03. 核心项目经历 / Key Projects</span>
+          <span class="flex-1 h-px bg-scholar-gold/20"></span>
+        </h2>
+        <div class="space-y-6">
+          <!-- 项目 1 -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+              <div class="font-bold text-sm text-ink dark:text-ink-dark">
+                Index Take-Profit Monitor (指数估值与动态定投止盈监控流水线)
+              </div>
+              <div class="text-xs font-mono text-zinc-500">2026.03 — 至今 · 独立设计与开发</div>
+            </div>
+            <div class="text-[11px] font-mono text-scholar-gold mb-2">
+              Python · GitHub Actions · Cloudflare Cron · 金融工程
+            </div>
+            <ul class="text-xs text-zinc-600 dark:text-zinc-300 space-y-1 list-disc list-inside">
+              <li><strong>项目定位：</strong>针对跨市场核心宽基（纳指100 / 标普500 / 沪深300 / 中证500）搭建全自动化监控与交易纪律守护系统。</li>
+              <li><strong>量化模型：</strong>基于历史 PE/PB 百分位构建估值打分引擎，结合动态均线趋势生成 DCA 定投系数，有效规避高位追涨与情绪化抄底。</li>
+              <li><strong>架构实现：</strong>纯云端无服务器部署，通过 GitHub Actions 与 Cloudflare Cron 实现每日闭市自动拉取行情并向邮箱推送决策报告。</li>
+            </ul>
+          </div>
+
+          <!-- 项目 2 -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+              <div class="font-bold text-sm text-ink dark:text-ink-dark">
+                Lean Quant Lab v1.4.2 (低频量化研究室与回测框架)
+              </div>
+              <div class="text-xs font-mono text-zinc-500">2026.07 — 至今 · 个人主导研发</div>
+            </div>
+            <div class="text-[11px] font-mono text-scholar-gold mb-2">
+              Python · Backtesting Engine · 资产配置 · 因子挖掘
+            </div>
+            <ul class="text-xs text-zinc-600 dark:text-zinc-300 space-y-1 list-disc list-inside">
+              <li><strong>策略探索：</strong>自建高保真低频回测系统，重点验证半导体 ETF 月度 PE 轮动与定投规则，寻找年化 3~5% 稳定、无需频繁调仓的“平凡因子”。</li>
+              <li><strong>交易纪律：</strong>深度融合实盘交易单（如小商品城 600415），推行交易前假设证明与严密止损纪律，杜绝跟风投机。</li>
+            </ul>
+          </div>
+
+          <!-- 项目 3 -->
+          <div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+              <div class="font-bold text-sm text-ink dark:text-ink-dark">
+                Data Structures & Algorithm Analysis (C++ 算法与底层结构实现)
+              </div>
+              <div class="text-xs font-mono text-zinc-500">2026.03 — 至今 · 开源实践</div>
+            </div>
+            <div class="text-[11px] font-mono text-scholar-gold mb-2">
+              C++ · 算法复杂度 · 内存剖析 · PTA 基准测试
+            </div>
+            <ul class="text-xs text-zinc-600 dark:text-zinc-300 space-y-1 list-disc list-inside">
+              <li><strong>手写底层：</strong>脱离现成库黑盒，纯手工实现链表、树、二叉搜索树、图结构等全套经典数据结构，确保指针与内存释放无泄漏。</li>
+              <li><strong>严苛验证：</strong>针对 PTA 平台工业级兼容限制（限定 C++ 语法）进行边界测试，全覆盖特殊极值输入，并对照 CSAPP 理论推导时间复杂度。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 竞赛与学业目标 -->
+      <section>
+        <h2 class="text-base font-bold uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-mono mb-4 flex items-center gap-2">
+          <span>04. 竞赛经历与荣誉 / Competitions</span>
+          <span class="flex-1 h-px bg-scholar-gold/20"></span>
+        </h2>
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-between items-baseline">
+            <span class="font-bold">全国大学生数学竞赛 (CMC) · 北京赛区非数学 A 类甲组</span>
+            <span class="font-mono text-zinc-500">2026.11 初赛在备</span>
+          </div>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            纯高等数学竞赛组别，真题驱动复习，主攻中值定理证明、多元函数微分极值、重积分与级数敛散性技巧。
+          </p>
+
+          <div class="flex justify-between items-baseline pt-2">
+            <span class="font-bold">全国软件和信息技术专业人才大赛 (蓝桥杯)</span>
+            <span class="font-mono text-zinc-500">重点备赛中</span>
+          </div>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            主攻动态规划、图论连通性与数论算法，建立了完备的高频考点解题思维导图。
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. 个人特质与生活自律 -->
+      <section class="border-t border-zinc-200/80 dark:border-zinc-800 pt-6">
+        <h2 class="text-base font-bold uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-mono mb-3">
+          05. 个人特质与生活自律 / Traits
+        </h2>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+          坚持身心一体的长期主义。长跑方面制定 2026 年底自补给连续跑完半程马拉松训练周期，将跑步作为心理与情绪调节核心工具；公路车骑行配置 Giant PCR LTD 2，具备长距离耐力储备；坚守“单主线铁律”，具备极强的独立自驱力与问题攻坚耐力。
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,186 @@
+export interface StarredRepo {
+  fullName: string;
+  name: string;
+  owner: string;
+  url: string;
+  description: string;
+  language?: string;
+  stars: number;
+  category: 'Agent' | 'Quant' | 'CS' | 'Tools';
+  commentary: string; // DASEIN 选品理由与技术点评
+}
+
+export const starredRepos: StarredRepo[] = [
+  // --- Agent & AI 自动化 ---
+  {
+    fullName: 'browser-use/browser-use',
+    name: 'browser-use',
+    owner: 'browser-use',
+    url: 'https://github.com/browser-use/browser-use',
+    description: 'Agents that use the browser. 让大模型具备人类级别的网页视觉感知与交互操纵能力。',
+    language: 'Python',
+    stars: 117093,
+    category: 'Agent',
+    commentary: '目前最具代表性的浏览器端具身智能项目。其基于 Playwright 的 DOM 树压缩与视觉标注机制，为多步长程自主 Agent 提供了极佳的范式参考。',
+  },
+  {
+    fullName: 'openclaw/openclaw',
+    name: 'openclaw',
+    owner: 'openclaw',
+    url: 'https://github.com/openclaw/openclaw',
+    description: 'The AI that really does things. Any OS. Any Platform. The lobster way. 🦞',
+    language: 'TypeScript',
+    stars: 391264,
+    category: 'Agent',
+    commentary: '跨操作系统级别的自主智能体执行框架。突破了单纯的对话框架，致力于将 LLM 转化为具备执行命令、读写文件、多端联动的真实生产力实体。',
+  },
+  {
+    fullName: 'opendatalab/MinerU',
+    name: 'MinerU',
+    owner: 'opendatalab',
+    url: 'https://github.com/opendatalab/MinerU',
+    description: 'Transforms complex documents like PDFs and Office docs into LLM-ready markdown/JSON for your Agentic workflows.',
+    language: 'Python',
+    stars: 81064,
+    category: 'Agent',
+    commentary: '高质量知识库构建的基础设施级工具。在解析复杂多列排版、科学公式与嵌入表格方面精度极高，是构建 Agent 知识检索链路的利器。',
+  },
+  {
+    fullName: 'Panniantong/Agent-Reach',
+    name: 'Agent-Reach',
+    owner: 'Panniantong',
+    url: 'https://github.com/Panniantong/Agent-Reach',
+    description: 'Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu.',
+    language: 'Python',
+    stars: 90107,
+    category: 'Agent',
+    commentary: '为 Agent 赋予全网多模态社交媒体搜索与抓取能力。单 CLI 入口且零 API 费用，打通了跨平台舆情与信息沉淀的闭环。',
+  },
+  {
+    fullName: 'n8n-io/n8n',
+    name: 'n8n',
+    owner: 'n8n-io',
+    url: 'https://github.com/n8n-io/n8n',
+    description: 'Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud.',
+    language: 'TypeScript',
+    stars: 206609,
+    category: 'Agent',
+    commentary: '自托管工作流编排领域的工业级天花板。其将节点化自动化与原生 AI 逻辑混合的设计，非常适合作为个人数据与定时任务的调度中枢。',
+  },
+  {
+    fullName: 'swufe-xiongmin/free_premium_ai',
+    name: 'free_premium_ai',
+    owner: 'swufe-xiongmin',
+    url: 'https://github.com/swufe-xiongmin/free_premium_ai',
+    description: '收录可以免费使用能力较强的AI合集，深入权衡免费、稳定与高性能的不可能三角。',
+    language: 'JavaScript',
+    stars: 844,
+    category: 'Agent',
+    commentary: '立足学生与极客视角的实用模型资源导航。对于评测不同开源平台 API 稳定性与备选路由提供了第一手实测参考。',
+  },
+
+  // --- 量化研究与金融 ---
+  {
+    fullName: 'ZhuLinsen/daily_stock_analysis',
+    name: 'daily_stock_analysis',
+    owner: 'ZhuLinsen',
+    url: 'https://github.com/ZhuLinsen/daily_stock_analysis',
+    description: 'LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。',
+    language: 'Python',
+    stars: 65875,
+    category: 'Quant',
+    commentary: '大模型与金融量化结合的优秀实践工程。多源行情抓取配合 Serverless 定时汇总推送，与我的 index-take-profit-monitor 架构思路深度共鸣。',
+  },
+  {
+    fullName: 'zgwl/chinese-buy-us-stock-guide',
+    name: 'chinese-buy-us-stock-guide',
+    owner: 'zgwl',
+    url: 'https://github.com/zgwl/chinese-buy-us-stock-guide',
+    description: '美股指南：涵盖跨境开户、出入金合规路径与美股核心宽基 ETF 配置常识。',
+    language: 'Markdown',
+    stars: 7324,
+    category: 'Quant',
+    commentary: '客观详尽的海外宽基资产配置实务手册。对于理解纳指/标普底层交易机制与合规框架具有极高的案头查阅价值。',
+  },
+
+  // --- 计算机底层与数理基石 ---
+  {
+    fullName: 'CyC2018/CS-Notes',
+    name: 'CS-Notes',
+    owner: 'CyC2018',
+    url: 'https://github.com/CyC2018/CS-Notes',
+    description: '技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计体系归纳。',
+    language: 'Markdown',
+    stars: 186370,
+    category: 'CS',
+    commentary: '国内技术领域体系最完备的计算机科学核心常识笔记。操作系统内存管理、网络协议栈与经典算法考点的结构化梳理非常扎实。',
+  },
+  {
+    fullName: 'applenob/Cpp_Primer_Practice',
+    name: 'Cpp_Primer_Practice',
+    owner: 'applenob',
+    url: 'https://github.com/applenob/Cpp_Primer_Practice',
+    description: '搞定 C++。C++ Primer 中文版第 5 版完整练习题代码实现与重点笔记。',
+    language: 'C++',
+    stars: 8769,
+    category: 'CS',
+    commentary: 'C++ 进阶必备的案头标杆。手写每一道习题对于深入理解标准库容器、智能指针底层生命周期以及现代 C++ 特性至关重要。',
+  },
+  {
+    fullName: 'WandD2277/Math-And-English-Library',
+    name: 'Math-And-English-Library',
+    owner: 'WandD2277',
+    url: 'https://github.com/WandD2277/Math-And-English-Library',
+    description: '基于 Obsidian 记录的数学与英语笔记，包含高等数学、线性代数、语法与长难句拆解。',
+    language: 'Markdown',
+    stars: 310,
+    category: 'CS',
+    commentary: '用知识图谱管理数理逻辑与考研核心知识点的典范，与我的 CMC 备考及高数真题推演体系高度契合。',
+  },
+
+  // --- 工具与生活进阶 ---
+  {
+    fullName: 'wistbean/learn_python3_spider',
+    name: 'learn_python3_spider',
+    owner: 'wistbean',
+    url: 'https://github.com/wistbean/learn_python3_spider',
+    description: '从 0 到 1 学习 Python 爬虫，包含协议逆向、代理池搭建与异步高并发实战。',
+    language: 'Python',
+    stars: 22155,
+    category: 'Tools',
+    commentary: '网络协议与网络 I/O 实践教程。在构建独立量化行情抓取与多数据源汇总管道时，提供了极佳的底层底层经验。',
+  },
+  {
+    fullName: 'Usagi-org/ai-goofish-monitor',
+    name: 'ai-goofish-monitor',
+    owner: 'ai-goofish-monitor',
+    url: 'https://github.com/Usagi-org/ai-goofish-monitor',
+    description: '基于 Playwright 和 AI 实现的多任务实时商品监控与智能比价系统。',
+    language: 'Python',
+    stars: 14639,
+    category: 'Tools',
+    commentary: '将自动化无头浏览器与智能判定结合的优秀垂类项目，极好地展示了从信息过滤到触发通知的工程闭环。',
+  },
+  {
+    fullName: 'OpenBMB/VoxCPM',
+    name: 'VoxCPM',
+    owner: 'OpenBMB',
+    url: 'https://github.com/OpenBMB/VoxCPM',
+    description: 'VoxCPM2: Tokenizer-Free TTS for Multilingual Speech Generation and Creative Voice Design.',
+    language: 'Python',
+    stars: 38295,
+    category: 'Tools',
+    commentary: '无 Tokenizer 的前沿端到端语音大模型。其架构摒弃传统中间离散量化，在自然度和零样本声音克隆上展现了颠覆性表现。',
+  },
+  {
+    fullName: 'byoungd/up',
+    name: 'up (人生进阶指南)',
+    owner: 'byoungd',
+    url: 'https://github.com/byoungd/up',
+    description: '涵盖学习心法、AI 指南与系统认知升级的进阶框架。',
+    language: 'JavaScript',
+    stars: 67001,
+    category: 'Tools',
+    commentary: '关于自律、精力管理与注意力主线聚焦的优质沉淀，有助于在大学阶段建立稳定的心态与长跑节奏。',
+  },
+];

@@ -4,9 +4,26 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 import Search from '../components/Search.astro';
 import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 
-const { title, description = '此在 —— Dasein 的数字笔记' } = Astro.props;
-const siteTitle = title ? `${title} | Dasein` : 'Dasein';
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = '此在 —— Dasein 的数字笔记与工程作品集' } = Astro.props;
+const siteTitle = title ? `${title} | Dasein` : 'Dasein · 此在';
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/growth', label: 'Growth' },
+  { href: '/radar', label: 'Radar' },
+  { href: '/posts', label: 'Archive' },
+  { href: '/about', label: 'About' },
+];
 ---
+<!DOCTYPE html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -31,45 +48,66 @@ const siteTitle = title ? `${title} | Dasein` : 'Dasein';
     <PagefindConfig />
   </head>
 
-  <body>
-    <nav class="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 z-40">
-      <div class="flex items-center gap-2 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-xl
-                  border border-white/40 dark:border-white/10
-                  px-3 py-2 rounded-full shadow-lg">
-        <a href="/" aria-label="首页" class="w-8 h-8 flex items-center justify-center
+  <body class="selection:bg-scholar-gold/20 dark:selection:bg-scholar-goldDark/20">
+    <!-- 顶部固定胶囊导航 (打印时隐藏) -->
+    <nav class="print:hidden fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 max-w-[95vw]">
+      <div class="flex items-center gap-1.5 md:gap-2 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl
+                  border border-zinc-200/60 dark:border-white/10
+                  px-2.5 py-1.5 md:px-3 md:py-2 rounded-full shadow-lg shadow-black/5">
+        <a href="/" aria-label="首页" class="w-7 h-7 md:w-8 md:h-8 flex-shrink-0 flex items-center justify-center
            bg-ink dark:bg-ink-dark text-paper dark:text-paper-dark
-           rounded-full font-serif italic text-sm">D</a>
-        <button id="search-trigger" aria-label="搜索" class="hidden md:flex items-center gap-2 px-3 py-1 text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400
-               hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+           rounded-full font-serif italic text-xs md:text-sm hover:opacity-90 transition-opacity">D</a>
+
+        <div class="flex items-center overflow-x-auto no-scrollbar space-x-1 md:space-x-3 px-1 md:px-3 text-[11px] md:text-xs uppercase tracking-wider
+                    font-medium text-zinc-500 dark:text-zinc-400 border-l border-zinc-300/40 dark:border-zinc-700/60 pl-2 md:pl-3 ml-1">
+          {navItems.map((item) => {
+            const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+            return (
+              <a
+                href={item.href}
+                class={`px-1.5 py-0.5 rounded-full whitespace-nowrap transition-colors ${
+                  isActive
+                    ? 'text-scholar-gold dark:text-scholar-goldDark font-semibold bg-scholar-gold/10 dark:bg-scholar-goldDark/10'
+                    : 'hover:text-scholar-gold dark:hover:text-scholar-goldDark'
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </div>
+
+        <button
+          id="search-trigger"
+          aria-label="搜索"
+          class="flex items-center gap-1.5 px-2 py-1 text-[11px] uppercase tracking-wider text-zinc-500 dark:text-zinc-400
+                 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors flex-shrink-0"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
           </svg>
-          探索
+          <span class="hidden sm:inline">探索</span>
         </button>
-        <div class="hidden md:flex items-center space-x-4 px-4 text-[10px] uppercase tracking-widest
- font-medium text-zinc-500 dark:text-zinc-400 border-l border-zinc-300/40 dark:border-zinc-600/40 pl-4 ml-1">
-          <a href="/" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">Home</a>
-          <a href="/posts" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">Archive</a>
-          <a href="/about" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">About</a>
-          <a href="/rss.xml" class="hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">RSS</a>
-        </div>
+
         <ThemeToggle />
       </div>
     </nav>
 
-    <main class="pt-24 md:pt-32">
+    <main class="pt-24 md:pt-28 min-h-screen">
       <slot />
     </main>
 
     <Search />
 
-    <footer class="mt-32 pb-12 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">
+    <!-- 页脚 (打印时隐藏) -->
+    <footer class="print:hidden mt-32 pb-12 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">
       <div class="max-w-2xl mx-auto flex flex-col items-center gap-3">
         <div class="w-px h-12 bg-gradient-to-b from-scholar-gold dark:from-scholar-goldDark to-transparent"></div>
-        <p>Dasein © 2026 · 此在</p>
+        <p>Dasein © 2026 · 此在与时间</p>
+        <p class="text-[9px] text-zinc-400/80 tracking-widest lowercase">Being and Time in the Digital Clearing</p>
       </div>
     </footer>
 
-    <script type="module" src="/pagefind/pagefind-ui.js"></script>
+    <script is:inline type="module" src="/pagefind/pagefind-ui.js"></script>
   </body>
 </html>

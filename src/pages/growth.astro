@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { growthMilestones } from '../data/growth';
+
+const categoryLabels: Record<string, string> = {
+  CS: '💻 CS与系统',
+  Quant: '📈 量化与投资',
+  Fitness: '🏃 体能与自律',
+  Reading: '📖 阅读与思考',
+};
+---
+<Layout title="成长轨迹" description="Dasein 的个人进化、关键节点与认知迭代时间轴">
+  <div class="max-w-3xl mx-auto px-6 py-8">
+    <!-- 头部区域 -->
+    <header class="mb-12 text-center md:text-left">
+      <div class="inline-block px-3 py-1 mb-3 text-[10px] font-mono tracking-widest uppercase rounded-full bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark">
+        Evolution & Milestones
+      </div>
+      <h1 class="text-4xl md:text-5xl font-serif italic text-ink dark:text-ink-dark">
+        成长轨迹<span class="text-scholar-gold dark:text-scholar-goldDark">.</span>
+      </h1>
+      <p class="mt-3 text-sm text-zinc-500 dark:text-zinc-400 font-serif leading-relaxed max-w-xl">
+        记录大学与工程探索以来的关键跃迁节点。不求盲目膨胀，只记录真实的认知迭代、技术突破与身心自律。
+      </p>
+
+      <!-- 分类筛选器 -->
+      <div class="flex flex-wrap items-center gap-2 mt-8 pt-6 border-t border-zinc-200/60 dark:border-zinc-800">
+        <button class="growth-filter-btn active text-xs px-3 py-1.5 rounded-full transition-all bg-ink dark:bg-ink-dark text-paper dark:text-paper-dark" data-category="all">
+          全部 ({growthMilestones.length})
+        </button>
+        <button class="growth-filter-btn text-xs px-3 py-1.5 rounded-full transition-all bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:text-scholar-gold" data-category="CS">
+          💻 CS与系统
+        </button>
+        <button class="growth-filter-btn text-xs px-3 py-1.5 rounded-full transition-all bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:text-scholar-gold" data-category="Quant">
+          📈 量化与投资
+        </button>
+        <button class="growth-filter-btn text-xs px-3 py-1.5 rounded-full transition-all bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:text-scholar-gold" data-category="Fitness">
+          🏃 体能与自律
+        </button>
+      </div>
+    </header>
+
+    <!-- 时间轴列表 -->
+    <div class="relative pl-6 md:pl-8 border-l border-scholar-gold/30 dark:border-scholar-goldDark/30 space-y-10" id="growth-timeline">
+      {growthMilestones.map((item) => (
+        <article
+          class="growth-item relative group"
+          data-category={item.category}
+        >
+          <!-- 时间轴金色节点球 -->
+          <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-paper dark:bg-paper-dark border-2 border-scholar-gold dark:border-scholar-goldDark group-hover:bg-scholar-gold transition-colors shadow-sm"></div>
+
+          <!-- 内容卡片 -->
+          <div class="p-5 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/80 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm group-hover:border-scholar-gold/50 transition-all duration-300">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <div class="flex items-center gap-2">
+                <time class="text-xs font-mono font-bold tracking-wider text-scholar-gold dark:text-scholar-goldDark">
+                  {item.date}
+                </time>
+                <span class="text-[10px] px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 font-mono">
+                  {categoryLabels[item.category] || item.category}
+                </span>
+              </div>
+              {item.badge && (
+                <span class="text-[10px] px-2 py-0.5 rounded font-mono bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark border border-scholar-gold/20">
+                  {item.badge}
+                </span>
+              )}
+            </div>
+
+            <h2 class="text-lg font-serif font-bold text-ink dark:text-ink-dark mt-1">
+              {item.title}
+            </h2>
+
+            <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed mt-2">
+              {item.description}
+            </p>
+
+            <!-- 核心沉淀总结 -->
+            <div class="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/60 flex items-start gap-2 text-xs font-serif italic text-zinc-500 dark:text-zinc-400">
+              <span class="text-scholar-gold font-bold select-none not-italic">✦</span>
+              <span>“{item.takeaway}”</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <script is:inline>
+    const filterBtns = document.querySelectorAll('.growth-filter-btn');
+    const items = document.querySelectorAll('.growth-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-ink', 'dark:bg-ink-dark', 'text-paper', 'dark:text-paper-dark');
+          b.classList.add('bg-zinc-100', 'dark:bg-zinc-800', 'text-zinc-600', 'dark:text-zinc-300');
+        });
+        btn.classList.add('bg-ink', 'dark:bg-ink-dark', 'text-paper', 'dark:text-paper-dark');
+        btn.classList.remove('bg-zinc-100', 'dark:bg-zinc-800', 'text-zinc-600', 'dark:text-zinc-300');
+
+        const cat = btn.getAttribute('data-category');
+        items.forEach(item => {
+          if (cat === 'all' || item.getAttribute('data-category') === cat) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</Layout>

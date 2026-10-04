@@ -21,7 +21,7 @@
 
 <script>
   const overlay = document.getElementById('search-overlay');
-  const input = document.getElementById('search-input');
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
   const trigger = document.getElementById('search-trigger');
 
   const open = () => {

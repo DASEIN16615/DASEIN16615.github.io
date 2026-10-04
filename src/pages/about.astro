@@ -1,20 +1,71 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="关于" description="关于 Dasein —— 此在">
+<Layout title="关于" description="关于 Dasein —— 此在、计算机与长跑自律">
   <article class="prose-custom py-8">
-    <h1>关于</h1>
+    <div class="inline-block px-3 py-1 mb-3 text-[10px] font-mono tracking-widest uppercase rounded-full bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark not-prose">
+      About & Philosophy
+    </div>
+    <h1 class="text-4xl font-serif italic text-ink dark:text-ink-dark">关于 · 此在</h1>
+
     <p>
-      此在（Dasein）是海德格尔《存在与时间》的核心概念——指那个"它的存在本身对其成问题的存在者"。
-      这个博客是我个人思考的笔记与外化。
+      <strong>此在（Dasein）</strong>源自马丁·海德格尔在《存在与时间》中的核心界定：指那个<em>“在其存在中对其存在本身有所领会的特殊存在者”</em>。
+      在这个被高度碎片化信息流与算法推流不断冲刷的时代，搭建这个站点是我重构个人认知秩序、将思考与工程实体化的数字据点（Digital Clearing）。
     </p>
+
+    <blockquote>
+      “在数字林中空地上，守护向死而生的专注与本真。”
+    </blockquote>
+
+    <h2>一、 我在专注什么</h2>
     <p>
-      内容涵盖：计算机、数学、哲学、阅读、投资，以及偶尔的生活。
-      写作原则：诚实优先，宁可留白。
+      目前就读于<strong>首都师范大学计算机科学与技术专业</strong>（2025 级本科在读）。我的知识与探索主要锚定在以下三个紧密咬合的支柱上：
     </p>
+    <ul>
+      <li>
+        <strong>计算机系统底层与算法机制：</strong> 钻研 CSAPP 与 Linux 系统编程，拒绝将技术当做不可知的黑盒，坚持用纯 C++ 从零手写并实测核心数据结构与复杂度的实机表现。
+      </li>
+      <li>
+        <strong>AI-Native 辅助编程与智能体架构：</strong> 深入实践现代大模型时代下的“Vibe Coding”范式，研究自主智能体（Agents）的多阶段任务规划、记忆物理分治隔离与工具链自动化闭环。
+      </li>
+      <li>
+        <strong>低频稳健量化与资产配置：</strong> 追求具备可解释性与低换手率的投资体系。自主构建本地回测框架与宽基指数估值监控流水线，规避高频躁动，专注年化 3~5% 稳定的平凡因子。
+      </li>
+    </ul>
+
+    <h2>二、 意志、长跑与身心体验</h2>
+    <p>
+      我相信强大的智力穿透力离不开稳固的躯体容器。在代码与数学之外，我通过严格的体能训练调控情绪与精神耐力：
+    </p>
+    <ul>
+      <li><strong>半马自补给完赛：</strong> 制定科学的自补给长跑周期（以配速、HRV 心率变异性与静息心率为指标），不参赛、不跑走结合，安全连续完赛。</li>
+      <li><strong>公路车骑行：</strong> 骑行 Giant PCR LTD 2，规划京津 110km 线路，以严苛的 3h+ 锁踏耐受度锤炼坐姿与躯干核心。</li>
+      <li><strong>深度阅读：</strong> 长期保持《经济学人》等英文严肃文本的日常精读，抵御泛娱乐化快餐。</li>
+    </ul>
+
+    <h2>三、 交互与工作原则</h2>
+    <p>
+      “单主线铁律”是我行动的核心基石 —— 任何阶段只允许一条深度主线，在关键节点上重兵集结。
+      无论是工程代码还是文字记录，我遵循：<strong>先下结论后展开细节、大白话结合具体例子、诚实优先、宁可留白亦不虚张声势。</strong>
+    </p>
+
     <hr />
-    <p class="text-sm text-zinc-500">
-      联系方式：见 GitHub <a href="https://github.com/dasein16615">@dasein16615</a>。
-    </p>
+
+    <div class="not-prose pt-4 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+      <div class="flex items-center gap-3">
+        <a href="/resume" class="text-scholar-gold dark:text-scholar-goldDark hover:underline font-bold">
+          查看个人简历 →
+        </a>
+        <a href="/projects" class="text-zinc-600 dark:text-zinc-400 hover:text-scholar-gold hover:underline">
+          浏览工程作品集 →
+        </a>
+        <a href="/radar" class="text-zinc-600 dark:text-zinc-400 hover:text-scholar-gold hover:underline">
+          技术雷达 →
+        </a>
+      </div>
+      <div class="text-zinc-400">
+        GitHub: <a href="https://github.com/DASEIN16615" target="_blank" class="hover:text-scholar-gold underline">@DASEIN16615</a>
+      </div>
+    </div>
   </article>
 </Layout>
