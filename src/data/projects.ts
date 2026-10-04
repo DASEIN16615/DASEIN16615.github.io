@@ -10,6 +10,8 @@ export interface Project {
   featured: boolean;
   highlights: string[];
   status: 'Active' | 'Completed' | 'Researching';
+  image?: string;
+  articleUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -21,6 +23,8 @@ export const projects: Project[] = [
     category: 'Quant',
     tags: ['Python', 'GitHub Actions', 'Serverless', '量化双轴模型', '宏观与AI雷达', '经济学人精读'],
     github: 'https://github.com/DASEIN16615/index-take-profit-monitor',
+    image: '/images/briefing-preview.jpg',
+    articleUrl: '/posts/morning-intelligence-briefing',
     featured: true,
     status: 'Active',
     highlights: [
