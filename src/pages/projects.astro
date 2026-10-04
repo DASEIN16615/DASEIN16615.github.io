@@ -78,18 +78,31 @@ import { projects } from '../data/projects';
 
           <div>
             {proj.image && (
-              <div class="mb-4 rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950/20 group/img relative">
-                <a href={proj.image} target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden">
+              <div class="mb-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-950/10 dark:bg-zinc-950/40 p-2 relative group/preview">
+                <div class="flex items-center justify-between text-[10px] font-mono text-zinc-400 mb-1.5 px-1">
+                  <span class="flex items-center gap-1">📱 实际邮件排版 (框内可上下滑动)</span>
+                  <button
+                    type="button"
+                    data-lightbox={proj.image}
+                    class="text-scholar-gold dark:text-scholar-goldDark hover:underline flex items-center gap-0.5 cursor-pointer"
+                  >
+                    🔍 全屏大图
+                  </button>
+                </div>
+                <div
+                  class="h-56 overflow-y-auto rounded-lg border border-zinc-200/60 dark:border-zinc-800 bg-zinc-900 shadow-inner relative cursor-zoom-in"
+                  data-lightbox={proj.image}
+                >
                   <img
                     src={proj.image}
                     alt={`${proj.title} 实际运行交付截图`}
-                    class="w-full h-44 object-cover object-top hover:scale-[1.02] transition-transform duration-500 cursor-zoom-in"
+                    class="w-full h-auto object-cover object-top"
                     loading="lazy"
                   />
-                  <div class="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[10px] font-mono bg-black/70 text-white backdrop-blur-sm flex items-center gap-1">
-                    <span>🔍 交付实况长图 ↗</span>
+                  <div class="sticky bottom-2 mx-auto w-max px-2.5 py-0.5 rounded-full text-[9px] font-mono bg-black/80 text-zinc-300 backdrop-blur-md border border-white/10 pointer-events-none shadow-md">
+                    ↕ 框内滑动浏览 · 点击全屏
                   </div>
-                </a>
+                </div>
               </div>
             )}
 

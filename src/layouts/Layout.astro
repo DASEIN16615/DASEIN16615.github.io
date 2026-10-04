@@ -99,6 +99,14 @@ const navItems = [
 
     <Search />
 
+    <!-- 全局图片全屏灯箱 (Image Lightbox) -->
+    <div id="image-lightbox" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md items-center justify-center p-3 md:p-6 cursor-zoom-out">
+      <button id="lightbox-close" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 text-white flex items-center justify-center text-lg transition-colors z-10" aria-label="关闭预览">✕</button>
+      <div class="max-h-[92vh] max-w-[95vw] overflow-y-auto rounded-2xl shadow-2xl relative cursor-default p-1" id="lightbox-container">
+        <img id="lightbox-img" src="" alt="全屏预览" class="max-w-full md:max-w-md mx-auto h-auto rounded-xl object-contain shadow-2xl" />
+      </div>
+    </div>
+
     <!-- 页脚 (打印时隐藏) -->
     <footer class="print:hidden mt-32 pb-12 px-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 dark:text-zinc-600">
       <div class="max-w-2xl mx-auto flex flex-col items-center gap-3">
@@ -107,6 +115,44 @@ const navItems = [
         <p class="text-[9px] text-zinc-400/80 tracking-widest lowercase">Being and Time in the Digital Clearing</p>
       </div>
     </footer>
+
+    <script is:inline>
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      const openLightbox = (src) => {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeLightbox = () => {
+        if (!lightbox) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      };
+
+      lightboxClose?.addEventListener('click', closeLightbox);
+      lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+
+      document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('[data-lightbox]');
+        if (trigger) {
+          e.preventDefault();
+          const src = trigger.getAttribute('data-lightbox') || trigger.getAttribute('src');
+          if (src) openLightbox(src);
+        }
+      });
+    </script>
 
     <script is:inline type="module" src="/pagefind/pagefind-ui.js"></script>
   </body>
