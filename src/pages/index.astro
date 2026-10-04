@@ -8,10 +8,10 @@ const allPosts = await getCollection('blog');
 const posts = allPosts
   .filter((p: CollectionEntry<'blog'>) => !p.data.draft)
   .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-  .slice(0, 3);
+  .slice(0, 4);
 
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 2);
-const recentMilestones = growthMilestones.slice(0, 3);
+const recentMilestones = growthMilestones.slice(0, 4);
 ---
 <Layout title="此在">
   <!-- Hero 区域 -->
@@ -40,6 +40,9 @@ const recentMilestones = growthMilestones.slice(0, 3);
         </a>
         <a href="/growth" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           成长轴 / Growth
+        </a>
+        <a href="/reading" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
+          书单 / Reading
         </a>
         <a href="/radar" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           技术雷达 / Radar
