@@ -15,18 +15,19 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'index-take-profit-monitor',
-    title: 'Index Take-Profit Monitor',
-    subtitle: '多标的指数估值与动态定投止盈自动化流水线',
-    description: '针对纳斯达克100、标普500、沪深300与中证500的自动化监控系统。基于 PE/PB 估值百分位计算动态估值评分，驱动定投比例放大或收缩；结合均线趋势拐点确认分批止盈信号。全自动化于 GitHub Actions + Cloudflare 定时任务运行，日度生成邮件通知。',
+    title: 'Morning Intelligence Briefing · 晨间情报内参',
+    subtitle: '自动化资产双轴量化 · 全球宏观 · 前沿 AI 科技 · 《经济学人》双语精读',
+    description: '基于 Serverless 闭环架构的每日个人情报中枢。融合“资产双轴量化模型”（纳指100/标普500/沪深300/中证500 PE/PB分位与SMA200动态止盈）、全球宏观核心风向标（10年美债/现货黄金/费城半导体）、Hugging Face 每日顶级 AI 论文前沿，以及《经济学人》严格双语精读与高阶词汇拆解。每日 09:00 CST 自动聚合渲染响应式 HTML 报告推送至 QQ 邮箱。',
     category: 'Quant',
-    tags: ['Python', 'GitHub Actions', 'Cloudflare', '量化策略', '自动化流水线'],
+    tags: ['Python', 'GitHub Actions', 'Serverless', '量化双轴模型', '宏观与AI雷达', '经济学人精读'],
     github: 'https://github.com/DASEIN16615/index-take-profit-monitor',
     featured: true,
     status: 'Active',
     highlights: [
-      '覆盖跨市场主流宽基指数（纳指100 / 标普500 / 沪深300 / 中证500）',
-      '估值百分位打分驱动的 DCA 动态定投倍率调节算法',
-      '纯云端 Serverless 架构，零成本定时触发与邮件警报推送',
+      '指数双轴模型：PE/PB 估值分位控制定投系数（仓位调节），SMA200 趋势确认严格分批止盈',
+      '多维情报聚合：宏观资产（美债/黄金/费半）+ Hugging Face AI 论文前沿 + CNBC 宏观快讯',
+      '《经济学人》双语深度精读引擎：独立原文与译文分块，长难句与 CET-4/考研核心词法萃取',
+      '云端 Serverless 零成本闭环：GitHub Actions + Cloudflare 定时触发，全模块熔断容错',
     ],
   },
   {

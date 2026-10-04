@@ -55,10 +55,10 @@ export const growthMilestones: GrowthMilestone[] = [
   },
   {
     date: '2026-03',
-    title: '开源指数估值监控器与 Vibe-Coding 模式库',
+    title: '构建晨间情报内参与资产双轴量化自动化流水线',
     category: 'CS',
-    description: '开源 index-take-profit-monitor，通过 GitHub Actions 与 Cloudflare 驱动四只宽基指数估值监控与邮件警报；同时沉淀 AI 辅助编程规范。',
-    takeaway: '通过云端 Serverless 自动化将个人日常需求工具化，是工程能力落地的最好试验田。',
+    description: '开源 index-take-profit-monitor，打通宽基指数双轴量化（估值管定投、趋势管止盈）、宏观资产、Hugging Face AI 论文与《经济学人》双语精读，实现每日 09:00 CST 全自动邮件推送。',
+    takeaway: '通过云端 Serverless 自动化将个人认知输入与量化风控工具化，是工程能力落地的最好试验田。',
   },
   {
     date: '2025-09',
