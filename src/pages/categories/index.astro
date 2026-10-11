@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const byCategory = posts.reduce((acc, p) => {
+  const cat = p.data.category || '随笔';
+  (acc[cat] ||= []).push(p);
+  return acc;
+}, {} as Record<string, typeof posts>);
+
+const categories = Object.keys(byCategory).sort();
+---
+<Layout title="Categories" description="文章分类浏览">
+  <section class="prose-custom py-8">
+    <header class="mb-8">
+      <h1>Categories</h1>
+      <p class="text-sm text-zinc-500 italic">{categories.length} 个分类 · 共 {posts.length} 篇文章</p>
+    </header>
+
+    <div class="flex flex-wrap gap-3 mb-12 not-prose">
+      {categories.map((cat) => (
+        <a
+          href={`/categories/${encodeURIComponent(cat)}`}
+          class="px-3 py-1.5 rounded-full text-xs font-mono tracking-wider bg-zinc-100/70 dark:bg-zinc-800/70 border border-zinc-200/50 dark:border-zinc-700/50 text-ink dark:text-ink-dark hover:border-scholar-gold dark:hover:border-scholar-goldDark hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors flex items-center gap-2"
+        >
+          <span>{cat}</span>
+          <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-sans">({byCategory[cat].length})</span>
+        </a>
+      ))}
+    </div>
+
+    {categories.map((cat) => (
+      <div class="mt-12">
+        <div class="flex items-baseline justify-between border-b border-zinc-200/60 dark:border-zinc-800/60 pb-2">
+          <h2 class="text-xl font-serif italic text-scholar-gold dark:text-scholar-goldDark m-0">
+            {cat}
+          </h2>
+          <span class="text-xs text-zinc-400 font-mono">{byCategory[cat].length} 篇</span>
+        </div>
+        <ul class="mt-4 space-y-4">
+          {byCategory[cat].map((post) => (
+            <li class="flex items-baseline gap-4">
+              <time class="text-[10px] uppercase tracking-widest text-zinc-400 font-mono whitespace-nowrap">
+                {post.data.pubDate.toISOString().slice(0, 10)}
+              </time>
+              <a href={`/posts/${post.id}`} class="flex-1 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
+                {post.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </section>
+</Layout>

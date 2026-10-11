@@ -17,7 +17,9 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 <Layout title="Archive">
   <section class="prose-custom py-8">
     <h1>Archive</h1>
-    <p class="text-sm text-zinc-500 italic">{posts.length} 篇文章</p>
+    <p class="text-sm text-zinc-500 italic">
+      {posts.length} 篇文章 · <a href="/categories" class="text-scholar-gold dark:text-scholar-goldDark hover:underline">按分类浏览 →</a>
+    </p>
     {years.map((year) => (
       <div class="mt-12">
         <h2 class="text-2xl font-serif italic text-scholar-gold dark:text-scholar-goldDark">{year}</h2>
@@ -29,6 +31,9 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
               </time>
               <a href={`/posts/${post.id}`} class="flex-1 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
                 {post.data.title}
+              </a>
+              <a href={`/categories/${encodeURIComponent(post.data.category || '随笔')}`} class="text-[10px] tracking-wider text-zinc-400 hover:text-scholar-gold dark:hover:text-scholar-goldDark font-mono whitespace-nowrap">
+                {post.data.category || '随笔'}
               </a>
             </li>
           ))}

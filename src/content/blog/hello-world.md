@@ -2,6 +2,7 @@
 title: 此在 · 前言
 pubDate: 2026-09-04
 description: 为什么写这个博客、写什么、不写什么。
+category: "随笔"
 tags: ["前言", "meta"]
 ---
 
