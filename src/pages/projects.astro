@@ -42,10 +42,10 @@ import { projects } from '../data/projects';
         >
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-semibold">
+              <span class="text-xs font-mono uppercase tracking-widest text-scholar-gold dark:text-scholar-goldDark font-semibold">
                 {proj.category}
               </span>
-              <span class={`text-[10px] px-2 py-0.5 rounded-full font-mono ${
+              <span class={`text-xs px-2.5 py-0.5 rounded-full font-mono ${
                 proj.status === 'Active'
                   ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
                   : 'bg-zinc-500/10 text-zinc-500 dark:text-zinc-400'
@@ -54,21 +54,21 @@ import { projects } from '../data/projects';
               </span>
             </div>
 
-            <h2 class="text-xl font-serif font-bold text-ink dark:text-ink-dark group-hover:text-scholar-gold dark:group-hover:text-scholar-goldDark transition-colors">
+            <h2 class="text-xl md:text-2xl font-serif font-bold text-ink dark:text-ink-dark group-hover:text-scholar-gold dark:group-hover:text-scholar-goldDark transition-colors">
               {proj.title}
             </h2>
-            <p class="text-xs text-zinc-400 dark:text-zinc-500 font-sans mt-0.5 mb-3">
+            <p class="text-xs md:text-sm text-zinc-400 dark:text-zinc-500 font-sans mt-0.5 mb-3">
               {proj.subtitle}
             </p>
 
-            <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed line-clamp-3 mb-4">
+            <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed line-clamp-3 mb-4">
               {proj.description}
             </p>
 
             <!-- 核心亮点 -->
             <ul class="space-y-1.5 mb-5 border-t border-zinc-100 dark:border-zinc-800/60 pt-3">
               {proj.highlights.map((h) => (
-                <li class="text-[11px] text-zinc-500 dark:text-zinc-400 flex items-start gap-1.5">
+                <li class="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-1.5">
                   <span class="text-scholar-gold dark:text-scholar-goldDark mt-0.5 font-bold">›</span>
                   <span>{h}</span>
                 </li>

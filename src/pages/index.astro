@@ -22,97 +22,98 @@ const recentMilestones = growthMilestones.slice(0, 4);
       <h1 class="text-7xl md:text-8xl font-serif italic tracking-tight opacity-95 transition-all duration-1000">
         Dasein<span class="text-scholar-gold dark:text-scholar-goldDark">.</span>
       </h1>
-      <p class="text-xs md:text-sm tracking-[0.4em] uppercase font-light text-zinc-400 dark:text-zinc-500">
+      <p class="text-sm md:text-base tracking-[0.35em] uppercase font-light text-zinc-400 dark:text-zinc-500">
         Being and Time in the Digital Clearing
       </p>
 
-      <p class="text-xs md:text-sm text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed px-4">
+      <p class="text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed px-4">
         首都师范大学计算机系 · 探索计算机系统底层机制、AI-Native 智能体架构与稳健低频量化
       </p>
 
       <!-- 快速导航入口胶囊 -->
-      <div class="flex flex-wrap justify-center items-center gap-2 pt-2">
-        <a href="/projects" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
+      <div class="flex flex-wrap justify-center items-center gap-2.5 pt-2">
+        <a href="/projects" class="text-xs md:text-sm px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           作品集 / Projects
         </a>
-        <a href="/resume" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
+        <a href="/resume" class="text-xs md:text-sm px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           简历 / Resume
         </a>
-        <a href="/growth" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
+        <a href="/growth" class="text-xs md:text-sm px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           成长轴 / Growth
         </a>
-        <a href="/reading" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
+        <a href="/reading" class="text-xs md:text-sm px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           书单 / Reading
         </a>
-        <a href="/radar" class="text-xs px-3.5 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
+        <a href="/radar" class="text-xs md:text-sm px-4 py-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 hover:border-scholar-gold dark:hover:border-scholar-goldDark transition-colors">
           技术雷达 / Radar
         </a>
       </div>
-
-      <div class="pt-8">
-        <div class="w-px h-16 bg-gradient-to-b from-scholar-gold dark:from-scholar-goldDark to-transparent mx-auto"></div>
-        <p class="mt-2 text-[10px] tracking-[0.3em] text-zinc-400 dark:text-zinc-600">DESCEND</p>
-      </div>
     </div>
 
-    <script is:inline>
-      const halo = document.getElementById('halo');
-      document.addEventListener('mousemove', (e) => {
-        if (!halo) return;
-        halo.style.transform = `translate(${(e.clientX - window.innerWidth / 2) * 0.15}px, ${(e.clientY - window.innerHeight / 2) * 0.15}px)`;
-      });
-    </script>
-  </section>
+    <div class="pt-8">
+      <div class="w-px h-16 bg-gradient-to-b from-scholar-gold dark:from-scholar-goldDark to-transparent mx-auto"></div>
+      <p class="mt-2 text-xs tracking-[0.3em] text-zinc-400 dark:text-zinc-600">DESCEND</p>
+    </div>
+  </div>
 
-  <!-- 主体内容区块 -->
-  <div class="max-w-4xl mx-auto px-6 space-y-20 pb-16">
-    <!-- 精选作品展位 -->
-    <section>
-      <div class="flex items-center justify-between mb-8">
-        <div class="flex items-center gap-3">
-          <h2 class="text-xs uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 font-mono">
-            Featured Projects / 精选工程
-          </h2>
-          <span class="w-1.5 h-1.5 rounded-full bg-scholar-gold"></span>
-        </div>
-        <a href="/projects" class="text-xs text-scholar-gold dark:text-scholar-goldDark hover:underline font-mono">
-          全部工程 ({projects.length}) →
-        </a>
+  <script is:inline>
+    const halo = document.getElementById('halo');
+    document.addEventListener('mousemove', (e) => {
+      if (!halo) return;
+      halo.style.transform = `translate(${(e.clientX - window.innerWidth / 2) * 0.15}px, ${(e.clientY - window.innerHeight / 2) * 0.15}px)`;
+    });
+  </script>
+</section>
+
+<!-- 主体内容区块 -->
+<div class="max-w-4xl mx-auto px-6 space-y-20 pb-16">
+  <!-- 精选项目模块 -->
+  <section>
+    <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center gap-3">
+        <h2 class="text-xs md:text-sm uppercase tracking-[0.35em] text-zinc-400 dark:text-zinc-500 font-mono">
+          Featured Projects / 精选工程
+        </h2>
+        <span class="w-1.5 h-1.5 rounded-full bg-scholar-gold"></span>
       </div>
+      <a href="/projects" class="text-xs md:text-sm text-scholar-gold dark:text-scholar-goldDark hover:underline font-mono">
+        全部工程 ({projects.length}) →
+      </a>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {featuredProjects.map((proj) => (
-          <div class="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-scholar-gold/60 transition-colors group flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between text-[10px] font-mono mb-2">
-                <span class="text-scholar-gold font-semibold uppercase">{proj.category}</span>
-                <span class="text-zinc-400">{proj.status}</span>
-              </div>
-              <h3 class="text-lg font-serif font-bold text-ink dark:text-ink-dark group-hover:text-scholar-gold transition-colors">
-                {proj.title}
-              </h3>
-              <p class="text-xs text-zinc-400 font-sans mt-0.5 mb-3">{proj.subtitle}</p>
-              <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed line-clamp-3">
-                {proj.description}
-              </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {featuredProjects.map((proj) => (
+        <div class="p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-scholar-gold/60 transition-colors group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-scholar-gold font-semibold uppercase">{proj.category}</span>
+              <span class="text-zinc-400">{proj.status}</span>
             </div>
-            <div class="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between">
-              <div class="flex gap-1.5">
-                {proj.tags.slice(0, 3).map((tag) => (
-                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              {proj.github && (
-                <a href={proj.github} target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-zinc-700 dark:text-zinc-300 hover:text-scholar-gold transition-colors">
-                  GitHub →
-                </a>
-              )}
-            </div>
+            <h3 class="text-xl font-serif font-bold text-ink dark:text-ink-dark group-hover:text-scholar-gold transition-colors">
+              {proj.title}
+            </h3>
+            <p class="text-xs md:text-sm text-zinc-400 font-sans mt-0.5 mb-3">{proj.subtitle}</p>
+            <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed line-clamp-3">
+              {proj.description}
+            </p>
           </div>
-        ))}
-      </div>
+          <div class="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between">
+            <div class="flex gap-1.5">
+              {proj.tags.slice(0, 3).map((tag) => (
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {proj.github && (
+              <a href={proj.github} target="_blank" rel="noopener noreferrer" class="text-xs md:text-sm font-mono text-zinc-700 dark:text-zinc-300 hover:text-scholar-gold transition-colors">
+                GitHub →
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
     </section>
 
     <!-- 双栏布局：近期成长节点 VS 随笔 -->
@@ -120,22 +121,22 @@ const recentMilestones = growthMilestones.slice(0, 4);
       <!-- 最近成长轨迹 -->
       <section>
         <div class="flex items-center justify-between mb-6 pb-2 border-b border-zinc-200/60 dark:border-zinc-800">
-          <h2 class="text-xs uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 font-mono">
+          <h2 class="text-xs md:text-sm uppercase tracking-[0.35em] text-zinc-400 dark:text-zinc-500 font-mono">
             Milestones / 近期跃迁
           </h2>
-          <a href="/growth" class="text-xs text-scholar-gold dark:text-scholar-goldDark hover:underline font-mono">
+          <a href="/growth" class="text-xs md:text-sm text-scholar-gold dark:text-scholar-goldDark hover:underline font-mono">
             成长轴 →
           </a>
         </div>
         <div class="space-y-4">
           {recentMilestones.map((m) => (
             <div class="p-4 rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white/20 dark:bg-zinc-900/20">
-              <div class="flex items-center justify-between text-[10px] font-mono text-zinc-400 mb-1">
+              <div class="flex items-center justify-between text-xs font-mono text-zinc-400 mb-1.5">
                 <span class="text-scholar-gold font-bold">{m.date}</span>
-                {m.badge && <span class="px-1.5 py-0.2 rounded bg-scholar-gold/10 text-scholar-gold">{m.badge}</span>}
+                {m.badge && <span class="px-2 py-0.5 rounded-full bg-scholar-gold/10 text-scholar-gold text-[11px] font-semibold">{m.badge}</span>}
               </div>
-              <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark">{m.title}</h4>
-              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 font-serif">{m.description}</p>
+              <h4 class="text-base font-serif font-bold text-ink dark:text-ink-dark">{m.title}</h4>
+              <p class="text-sm text-zinc-600 dark:text-zinc-300 mt-1.5 line-clamp-2 font-serif leading-relaxed">{m.description}</p>
             </div>
           ))}
         </div>
@@ -144,10 +145,10 @@ const recentMilestones = growthMilestones.slice(0, 4);
       <!-- 近期长文随笔 -->
       <section>
         <div class="flex items-center justify-between mb-6 pb-2 border-b border-zinc-200/60 dark:border-zinc-800">
-          <h2 class="text-xs uppercase tracking-[0.4em] text-zinc-400 dark:text-zinc-500 font-mono">
+          <h2 class="text-xs md:text-sm uppercase tracking-[0.35em] text-zinc-400 dark:text-zinc-500 font-mono">
             Writings / 近期随笔
           </h2>
-          <a href="/posts" class="text-xs text-scholar-gold dark:text-scholar-goldDark hover:underline font-mono">
+          <a href="/posts" class="text-xs md:text-sm text-scholar-gold dark:text-scholar-goldDark hover:underline font-mono">
             归档 →
           </a>
         </div>
@@ -155,20 +156,20 @@ const recentMilestones = growthMilestones.slice(0, 4);
           {posts.map((post) => (
             <li class="group">
               <a href={`/posts/${post.id}`} class="block p-4 rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 bg-white/20 dark:bg-zinc-900/20 group-hover:border-scholar-gold/50 transition-colors">
-                <time class="text-[10px] uppercase tracking-widest text-zinc-400 font-mono">
+                <time class="text-xs uppercase tracking-widest text-zinc-400 font-mono">
                   {post.data.pubDate.toISOString().slice(0, 10)}
                 </time>
-                <h3 class="mt-1 font-serif text-base font-bold text-ink dark:text-ink-dark group-hover:text-scholar-gold transition-colors">
+                <h3 class="mt-1 font-serif text-lg font-bold text-ink dark:text-ink-dark group-hover:text-scholar-gold transition-colors">
                   {post.data.title}
                 </h3>
                 {post.data.description && (
-                  <p class="mt-1 text-xs text-zinc-500 dark:text-zinc-400 italic line-clamp-2">{post.data.description}</p>
+                  <p class="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400 italic line-clamp-2 leading-relaxed">{post.data.description}</p>
                 )}
               </a>
             </li>
           ))}
           {posts.length === 0 && (
-            <li class="text-xs text-zinc-400 italic py-6 text-center">尚无随笔，等待书写。</li>
+            <li class="text-sm text-zinc-400 italic py-6 text-center">尚无随笔，等待书写。</li>
           )}
         </ul>
       </section>

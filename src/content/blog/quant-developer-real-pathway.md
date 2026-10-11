@@ -17,19 +17,85 @@ tags: ["量化开发", "C++", "低延迟架构", "职业思考", "计算机系�
 
 量化金融早已告别了十几年前“三台服务器 + 几个海外交易员”的作坊时代，进化为高度细分的重工业体系。
 
-```
-              ┌────────────────────────────────────────────────────────┐
-              │                     量化系统全景链路                    │
-              └────────────────────────────────────────────────────────┘
-                                          │
-            ┌─────────────────────────────┴─────────────────────────────┐
-            ▼                                                           ▼
-   【QR 量化研究员】                                             【QD 量化开发工程师】
-   - 核心：找 Alpha (超额收益)                                   - 核心：造枪、低延迟架构
-   - 日常：清洗噪音、挖掘特征因子、学术论文转交易模型              - 日常：高性能 C++ 生产落地、内核旁路、网络优化
-   - 工具：Python / PyTorch / 统计建模                           - 工具：现代 C++ / Linux 核心态 / 内存池 / 汇编
-   - 痛点：信噪比极低，80% 时间在与过拟合抗争                    - 痛点：每一纳秒的延迟都直接关乎真金白银的盈亏
-```
+<div class="not-prose my-10 p-6 md:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/60 dark:bg-zinc-900/50 backdrop-blur-sm shadow-sm">
+  <div class="text-center mb-6">
+    <span class="inline-block px-3 py-1 text-[11px] font-mono tracking-widest uppercase rounded-full bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark font-semibold mb-2">
+      System Architecture
+    </span>
+    <h3 class="text-xl md:text-2xl font-serif font-bold text-ink dark:text-ink-dark">
+      量化系统全景链路与角色分工
+    </h3>
+    <p class="text-xs md:text-sm text-zinc-500 dark:text-zinc-400 font-serif mt-1">
+      从低信噪比的数学建模，到纳秒级确定的低延迟系统工程
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <!-- QR 卡片 -->
+    <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-500/20">
+            QR · 量化研究员
+          </span>
+          <span class="text-[11px] font-mono text-zinc-400">Alpha Generator</span>
+        </div>
+        <h4 class="text-base font-serif font-bold text-ink dark:text-ink-dark mb-2">
+          核心目标：在噪音中提炼超额收益
+        </h4>
+        <ul class="space-y-2 text-xs md:text-sm text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          <li class="flex items-start gap-2">
+            <span class="text-scholar-gold font-mono">•</span>
+            <span><strong>日常攻坚：</strong>海量数据清洗、挖掘特征因子、将学术论文算法转化为交易模型。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-scholar-gold font-mono">•</span>
+            <span><strong>技术栈：</strong>Python / pandas / PyTorch / 统计建模 / 凸优化。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-scholar-gold font-mono">•</span>
+            <span><strong>核心挑战：</strong>金融数据信噪比极低，80% 的时间在与过拟合和超额衰减搏斗。</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-400">
+        门槛特征：数学/物理/统计顶会博士为主，极度依赖深厚数理底蕴
+      </div>
+    </div>
+
+    <!-- QD 卡片 -->
+    <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20">
+            QD · 量化开发工程师
+          </span>
+          <span class="text-[11px] font-mono text-zinc-400">Low-Latency Builder</span>
+        </div>
+        <h4 class="text-base font-serif font-bold text-ink dark:text-ink-dark mb-2">
+          核心目标：极端工程性能的“造枪者”
+        </h4>
+        <ul class="space-y-2 text-xs md:text-sm text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          <li class="flex items-start gap-2">
+            <span class="text-scholar-gold font-mono">•</span>
+            <span><strong>日常攻坚：</strong>策略代码 C++ 高性能翻译、微秒/纳秒级延迟优化、内核旁路通信。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-scholar-gold font-mono">•</span>
+            <span><strong>技术栈：</strong>现代 C++ (C++17/20) / Linux 核心态 / 内存池 / 无锁并发 / FPGA。</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-scholar-gold font-mono">•</span>
+            <span><strong>核心挑战：</strong>系统不允许任何延迟抖动，每一纳秒的迟滞都直接关乎真金白银。</span>
+          </li>
+        </ul>
+      </div>
+      <div class="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 text-[11px] font-mono text-scholar-gold dark:text-scholar-goldDark font-semibold">
+        ★ CS 科班最直接的入口：死磕系统底层、内存模型与网络协议
+      </div>
+    </div>
+  </div>
+</div>
 
 ### 1. 量化研究员（QR）——“在噪声中提炼信号”
 QR 的核心任务是从海量金融数据中寻找具有预测能力的因子（Alpha）。

@@ -13,8 +13,22 @@
     --paper-noise-opacity: 0.04;
   }
 
+  html {
+    /* 提高全站基础字号：移动端 17.5px，桌面端 18.5px，保证 EB Garamond 拥有极佳的可读性 */
+    font-size: 17.5px;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 18.5px;
+    }
+  }
+
   body {
     @apply bg-paper dark:bg-paper-dark text-ink dark:text-ink-dark font-serif antialiased;
+    font-size: 1rem;
+    line-height: 1.8;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
     text-shadow: 0.2px 0.2px 0.5px rgba(0, 0, 0, 0.05);
     transition: background-color 0.6s ease, color 0.6s ease;
@@ -37,18 +51,106 @@
 }
 
 @layer components {
+  /* 文章与正文排版容器 */
   .prose-custom {
     @apply max-w-2xl mx-auto;
+    font-size: 1.05rem; /* 约 19.5px，提供纯净沉浸的书籍级阅读手感 */
     line-height: 1.85;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.005em;
+  }
+
+  .prose-custom p {
+    margin-top: 1.35em;
+    margin-bottom: 1.35em;
+  }
+
+  .prose-custom h1 {
+    @apply font-serif text-3xl md:text-4xl font-bold tracking-tight text-ink dark:text-ink-dark;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    line-height: 1.25;
+  }
+
+  .prose-custom h2 {
+    @apply font-serif text-2xl md:text-3xl font-bold tracking-tight text-ink dark:text-ink-dark;
+    margin-top: 2.2em;
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+    padding-bottom: 0.35em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .prose-custom h2 {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .prose-custom h3 {
+    @apply font-serif text-xl md:text-2xl font-semibold text-ink dark:text-ink-dark;
+    margin-top: 1.75em;
+    margin-bottom: 0.6em;
+    line-height: 1.35;
+  }
+
+  .prose-custom h4 {
+    @apply font-serif text-lg md:text-xl font-semibold text-ink dark:text-ink-dark;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose-custom ul {
+    list-style-type: disc;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    padding-left: 1.5em;
+  }
+
+  .prose-custom ol {
+    list-style-type: decimal;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    padding-left: 1.5em;
+  }
+
+  .prose-custom li {
+    margin-top: 0.45em;
+    margin-bottom: 0.45em;
+  }
+
+  .prose-custom li > p {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+  }
+
+  .prose-custom hr {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .prose-custom hr {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .prose-custom a {
+    color: theme('colors.scholar.gold');
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+  .dark .prose-custom a {
+    color: theme('colors.scholar.goldDark');
+  }
+  .prose-custom a:hover {
+    opacity: 0.8;
   }
 
   .prose-custom blockquote {
     font-style: italic;
     text-align: center;
-    font-size: 1.25em;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    font-size: 1.2em;
+    line-height: 1.7;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 1rem;
     border-left: none;
     color: theme('colors.scholar.gold');
   }
@@ -57,21 +159,65 @@
   }
 
   .prose-custom pre {
-    @apply rounded-lg border border-zinc-200/40 dark:border-zinc-700/40 bg-zinc-50/50 dark:bg-zinc-900/50 shadow-inner;
+    @apply rounded-xl border border-zinc-200/60 dark:border-zinc-700/60 bg-zinc-50/70 dark:bg-zinc-900/70 shadow-inner;
     padding: 1.25rem;
     overflow-x: auto;
+    font-size: 0.85em;
+    line-height: 1.6;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
   }
+
   .prose-custom code {
-    @apply font-mono text-sm;
+    @apply font-mono;
   }
+
   .prose-custom :not(pre) > code {
-    @apply bg-zinc-100/60 dark:bg-zinc-800/60 px-1.5 py-0.5 rounded;
+    @apply bg-zinc-100/80 dark:bg-zinc-800/80 px-1.5 py-0.5 rounded text-scholar-gold dark:text-scholar-goldDark;
+    font-size: 0.88em;
+  }
+
+  /* 表格排版强化 */
+  .prose-custom table {
+    width: 100%;
+    margin-top: 1.8em;
+    margin-bottom: 1.8em;
+    border-collapse: separate;
+    border-spacing: 0;
     font-size: 0.9em;
+    line-height: 1.6;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0.85rem;
+    overflow: hidden;
+  }
+  .dark .prose-custom table {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .prose-custom th {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .dark .prose-custom th {
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+  .prose-custom td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+  .dark .prose-custom td {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+  .prose-custom tr:last-child td {
+    border-bottom: none;
   }
 }
 
 #search {
-  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-scale: 0.95;
   --pagefind-ui-primary: #C5A028;
   --pagefind-ui-text: #1d1d1f;
   --pagefind-ui-background: #FDFCFB;

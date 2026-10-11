@@ -54,30 +54,30 @@ const categoryLabels: Record<string, string> = {
           <div class="p-5 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/80 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm group-hover:border-scholar-gold/50 transition-all duration-300">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
               <div class="flex items-center gap-2">
-                <time class="text-xs font-mono font-bold tracking-wider text-scholar-gold dark:text-scholar-goldDark">
+                <time class="text-xs md:text-sm font-mono font-bold tracking-wider text-scholar-gold dark:text-scholar-goldDark">
                   {item.date}
                 </time>
-                <span class="text-[10px] px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 font-mono">
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 font-mono">
                   {categoryLabels[item.category] || item.category}
                 </span>
               </div>
               {item.badge && (
-                <span class="text-[10px] px-2 py-0.5 rounded font-mono bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark border border-scholar-gold/20">
+                <span class="text-xs px-2.5 py-0.5 rounded font-mono bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark border border-scholar-gold/20 font-semibold">
                   {item.badge}
                 </span>
               )}
             </div>
 
-            <h2 class="text-lg font-serif font-bold text-ink dark:text-ink-dark mt-1">
+            <h2 class="text-xl md:text-2xl font-serif font-bold text-ink dark:text-ink-dark mt-1">
               {item.title}
             </h2>
 
-            <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed mt-2">
+            <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed mt-2">
               {item.description}
             </p>
 
             <!-- 核心沉淀总结 -->
-            <div class="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/60 flex items-start gap-2 text-xs font-serif italic text-zinc-500 dark:text-zinc-400">
+            <div class="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/60 flex items-start gap-2 text-sm font-serif italic text-zinc-500 dark:text-zinc-400">
               <span class="text-scholar-gold font-bold select-none not-italic">✦</span>
               <span>“{item.takeaway}”</span>
             </div>

@@ -53,12 +53,157 @@ tags: ["体能工程", "自控力", "长跑", "运动康复", "数据思维"]
 
 计划被切分为清晰的 17 个微周期，包含定期减量周与硬核里程碑节点：
 
-```
-[W1-W3] 适应期 (11~15km/周) ──> [W4] 10km基准测试 ──> [W5-W8] 跑量爬坡期 (22~28km/周)
-  │                                                        │
-  ▼                                                        ▼
-[W9] 强制减量周 ──> [W10] 16km升降级决策点 ──> [W11-W15] 峰值备战 ──> [W16-W17] 锥形减量
-```
+<div class="not-prose my-10 p-6 md:p-8 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/60 dark:bg-zinc-900/50 backdrop-blur-sm shadow-sm">
+  <div class="text-center mb-6">
+    <span class="inline-block px-3 py-1 text-[11px] font-mono tracking-widest uppercase rounded-full bg-scholar-gold/10 text-scholar-gold dark:text-scholar-goldDark font-semibold mb-2">
+      17-Week Training Pipeline
+    </span>
+    <h3 class="text-xl md:text-2xl font-serif font-bold text-ink dark:text-ink-dark">
+      17 周渐进式周期设计与数据反馈门槛
+    </h3>
+    <p class="text-xs md:text-sm text-zinc-500 dark:text-zinc-400 font-serif mt-1">
+      以客观生理力学反馈为准绳的八阶段递进模型
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Phase 1 -->
+    <div class="p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-1.5">
+          <span>PHASE 01</span>
+          <span class="text-scholar-gold font-bold">W1–W3</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">适应启动期</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          周跑量 11~15km。低心率轻松跑，重点监控膝外侧反应与步态。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-zinc-400 border-t border-zinc-100 dark:border-zinc-800 pt-2">
+        RPE 3–4 · 全程能完整对话
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="p-4 rounded-xl border border-scholar-gold/40 dark:border-scholar-goldDark/40 bg-scholar-gold/5 dark:bg-scholar-goldDark/5 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-scholar-gold dark:text-scholar-goldDark mb-1.5 font-bold">
+          <span>PHASE 02</span>
+          <span>W4 · 基准</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">10km 基准测试</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          周末执行 10km 配速校验，基于真实心率与体感标定后续各训练区间。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-scholar-gold dark:text-scholar-goldDark border-t border-scholar-gold/20 pt-2 font-semibold">
+        ★ 校准全部后续目标配速
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-1.5">
+          <span>PHASE 03</span>
+          <span class="text-scholar-gold font-bold">W5–W8</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">跑量爬坡期</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          周跑量 22~28km。单次突破 10~13km，进入 ITBS 高危防范区。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-zinc-400 border-t border-zinc-100 dark:border-zinc-800 pt-2">
+        周增幅 ≤10% · 加量不加速度
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-1.5">
+          <span>PHASE 04</span>
+          <span class="text-scholar-gold font-bold">W9</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">周期强制减量</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          跑量主动下调至 24km，长距离缩减。肌腱与结缔组织超量恢复。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-zinc-400 border-t border-zinc-100 dark:border-zinc-800 pt-2">
+        每 4 周一次 · 修复微观应力
+      </div>
+    </div>
+
+    <!-- Phase 5 (CRITICAL GATE) -->
+    <div class="p-4 rounded-xl border border-amber-500/50 dark:border-amber-400/50 bg-amber-500/5 dark:bg-amber-400/5 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-amber-600 dark:text-amber-400 mb-1.5 font-bold">
+          <span>PHASE 05 · 决策点</span>
+          <span>W10</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">16km 升降级分水岭</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          无痛跑完 16km 检验。若出现持续不适或膝部预警，<strong>坚决降级为半马目标</strong>。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-amber-700 dark:text-amber-300 border-t border-amber-500/20 pt-2 font-bold">
+        ⚠ 核心数据门槛：数据决策
+      </div>
+    </div>
+
+    <!-- Phase 6 -->
+    <div class="p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-1.5">
+          <span>PHASE 06</span>
+          <span class="text-scholar-gold font-bold">W11–W15</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">峰值备战演练</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          周跑量爬升至 38~42km。单次 21~30km 总演练，严格磨合补给节奏。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-zinc-400 border-t border-zinc-100 dark:border-zinc-800 pt-2">
+        每 30-45min 补给 · 60g碳水/h
+      </div>
+    </div>
+
+    <!-- Phase 7 -->
+    <div class="p-4 rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/60 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 mb-1.5">
+          <span>PHASE 07</span>
+          <span class="text-scholar-gold font-bold">W16–W17</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">赛前锥形减量</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          跑量减半（26km → 16km），配速与节奏保持不变，冲刺 Strides 唤醒肌肉。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-zinc-400 border-t border-zinc-100 dark:border-zinc-800 pt-2">
+        储存糖原 · 降低神经疲劳
+      </div>
+    </div>
+
+    <!-- Phase 8 (TARGET) -->
+    <div class="p-4 rounded-xl border border-emerald-500/50 dark:border-emerald-400/50 bg-emerald-500/5 dark:bg-emerald-400/5 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="flex items-center justify-between text-[11px] font-mono text-emerald-600 dark:text-emerald-400 mb-1.5 font-bold">
+          <span>GOAL</span>
+          <span>W18</span>
+        </div>
+        <h4 class="text-sm font-serif font-bold text-ink dark:text-ink-dark mb-1">自补给完赛执行</h4>
+        <p class="text-xs text-zinc-600 dark:text-zinc-300 font-serif leading-relaxed">
+          选风和日丽的一天。自设闭环路线、自备补给、全程不走路，安全连续完赛。
+        </p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-emerald-700 dark:text-emerald-300 border-t border-emerald-500/20 pt-2 font-bold">
+        🏁 安全闭环完赛即胜利
+      </div>
+    </div>
+  </div>
+</div>
 
 ### 动态恢复门槛（数据说了算，感觉靠边站）
 每天清晨记录指标，触发阈值立即执行降级策略：

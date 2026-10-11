@@ -17,22 +17,22 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 <Layout title="Archive">
   <section class="prose-custom py-8">
     <h1>Archive</h1>
-    <p class="text-sm text-zinc-500 italic">
-      {posts.length} 篇文章 · <a href="/categories" class="text-scholar-gold dark:text-scholar-goldDark hover:underline">按分类浏览 →</a>
+    <p class="text-base text-zinc-500 italic">
+      {posts.length} 篇文章 · <a href="/categories" class="text-scholar-gold dark:text-scholar-goldDark hover:underline font-bold">按分类浏览 →</a>
     </p>
     {years.map((year) => (
       <div class="mt-12">
-        <h2 class="text-2xl font-serif italic text-scholar-gold dark:text-scholar-goldDark">{year}</h2>
+        <h2 class="text-2xl md:text-3xl font-serif italic text-scholar-gold dark:text-scholar-goldDark">{year}</h2>
         <ul class="mt-4 space-y-4">
           {byYear[year].map((post) => (
             <li class="flex items-baseline gap-4">
-              <time class="text-[10px] uppercase tracking-widest text-zinc-400 font-mono whitespace-nowrap">
+              <time class="text-xs md:text-sm uppercase tracking-wider text-zinc-400 font-mono whitespace-nowrap">
                 {post.data.pubDate.toISOString().slice(5, 10)}
               </time>
-              <a href={`/posts/${post.id}`} class="flex-1 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
+              <a href={`/posts/${post.id}`} class="text-base md:text-lg flex-1 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
                 {post.data.title}
               </a>
-              <a href={`/categories/${encodeURIComponent(post.data.category || '随笔')}`} class="text-[10px] tracking-wider text-zinc-400 hover:text-scholar-gold dark:hover:text-scholar-goldDark font-mono whitespace-nowrap">
+              <a href={`/categories/${encodeURIComponent(post.data.category || '随笔')}`} class="text-xs tracking-wider text-zinc-400 hover:text-scholar-gold dark:hover:text-scholar-goldDark font-mono whitespace-nowrap">
                 {post.data.category || '随笔'}
               </a>
             </li>
