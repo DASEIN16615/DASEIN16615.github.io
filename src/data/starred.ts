@@ -21,7 +21,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 117093,
     category: 'Agent',
-    commentary: '目前最具代表性的浏览器端具身智能项目。其基于 Playwright 的 DOM 树压缩与视觉标注机制，为多步长程自主 Agent 提供了极佳的范式参考。',
+    commentary: '比较实用的浏览器端 Agent 项目。基于 Playwright 进行 DOM 处理与视觉定位，其任务执行循环很值得参考。',
   },
   {
     fullName: 'openclaw/openclaw',
@@ -32,7 +32,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'TypeScript',
     stars: 391264,
     category: 'Agent',
-    commentary: '跨操作系统级别的自主智能体执行框架。突破了单纯的对话框架，致力于将 LLM 转化为具备执行命令、读写文件、多端联动的真实生产力实体。',
+    commentary: '尝试让 LLM 与本地命令执行、文件读写做深度结合的探索项目，脱离了单纯的对话界面。',
   },
   {
     fullName: 'opendatalab/MinerU',
@@ -43,7 +43,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 81064,
     category: 'Agent',
-    commentary: '高质量知识库构建的基础设施级工具。在解析复杂多列排版、科学公式与嵌入表格方面精度极高，是构建 Agent 知识检索链路的利器。',
+    commentary: '用于解析复杂 PDF 和文档的开源工具，多列排版和公式提取表现较好，适合用来做本地文献清洗。',
   },
   {
     fullName: 'Panniantong/Agent-Reach',
@@ -54,7 +54,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 90107,
     category: 'Agent',
-    commentary: '为 Agent 赋予全网多模态社交媒体搜索与抓取能力。单 CLI 入口且零 API 费用，打通了跨平台舆情与信息沉淀的闭环。',
+    commentary: '针对多平台公开内容抓取的工具库，支持跨平台搜索与信息提取，用法较为直接。',
   },
   {
     fullName: 'n8n-io/n8n',
@@ -65,7 +65,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'TypeScript',
     stars: 206609,
     category: 'Agent',
-    commentary: '自托管工作流编排领域的工业级天花板。其将节点化自动化与原生 AI 逻辑混合的设计，非常适合作为个人数据与定时任务的调度中枢。',
+    commentary: '成熟的开源自动化工作流工具。节点化编排与定时触发比较稳定，适合用来做日常自动化小流水线。',
   },
   {
     fullName: 'swufe-xiongmin/free_premium_ai',
@@ -89,7 +89,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 65875,
     category: 'Quant',
-    commentary: '大模型与金融量化结合的优秀实践工程。多源行情抓取配合 Serverless 定时汇总推送，与我的 index-take-profit-monitor 架构思路深度共鸣。',
+    commentary: '多源行情抓取配合定时汇总推送的实现很清晰，对我自己做定时监控脚本有参考价值。',
   },
   {
     fullName: 'zgwl/chinese-buy-us-stock-guide',
@@ -100,7 +100,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Markdown',
     stars: 7324,
     category: 'Quant',
-    commentary: '客观详尽的海外宽基资产配置实务手册。对于理解纳指/标普底层交易机制与合规框架具有极高的案头查阅价值。',
+    commentary: '较为详尽的海外宽基资产配置实务手册，适合查阅基础规则与常见疑问。',
   },
 
   // --- 计算机底层与数理基石 ---
@@ -113,7 +113,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Markdown',
     stars: 186370,
     category: 'CS',
-    commentary: '国内技术领域体系最完备的计算机科学核心常识笔记。操作系统内存管理、网络协议栈与经典算法考点的结构化梳理非常扎实。',
+    commentary: '扎实的计算机基础知识梳理，操作系统内存管理、网络协议栈与经典算法总结得很有条理。',
   },
   {
     fullName: 'applenob/Cpp_Primer_Practice',
@@ -124,7 +124,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'C++',
     stars: 8769,
     category: 'CS',
-    commentary: 'C++ 进阶必备的案头标杆。手写每一道习题对于深入理解标准库容器、智能指针底层生命周期以及现代 C++ 特性至关重要。',
+    commentary: 'C++ Primer 习题代码与重点笔记，跟着梳理标准库容器与指针用法很实用。',
   },
   {
     fullName: 'WandD2277/Math-And-English-Library',
@@ -135,7 +135,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Markdown',
     stars: 310,
     category: 'CS',
-    commentary: '用知识图谱管理数理逻辑与考研核心知识点的典范，与我的 CMC 备考及高数真题推演体系高度契合。',
+    commentary: '用知识图谱管理数理逻辑与考研核心知识点的案例，对我备考 CMC 与高数推演有参考借鉴。',
   },
 
   // --- 工具与生活进阶 ---
@@ -148,7 +148,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 22155,
     category: 'Tools',
-    commentary: '网络协议与网络 I/O 实践教程。在构建独立量化行情抓取与多数据源汇总管道时，提供了极佳的底层底层经验。',
+    commentary: '网络请求与爬虫入门教程，在抓取公开数据和处理基础网络 I/O 时可以随时查阅。',
   },
   {
     fullName: 'Usagi-org/ai-goofish-monitor',
@@ -159,7 +159,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 14639,
     category: 'Tools',
-    commentary: '将自动化无头浏览器与智能判定结合的优秀垂类项目，极好地展示了从信息过滤到触发通知的工程闭环。',
+    commentary: '将自动化无头浏览器与智能判定结合的项目，展示了从信息过滤到触发通知的完整小闭环。',
   },
   {
     fullName: 'OpenBMB/VoxCPM',
@@ -170,7 +170,7 @@ export const starredRepos: StarredRepo[] = [
     language: 'Python',
     stars: 38295,
     category: 'Tools',
-    commentary: '无 Tokenizer 的前沿端到端语音大模型。其架构摒弃传统中间离散量化，在自然度和零样本声音克隆上展现了颠覆性表现。',
+    commentary: '端到端语音大模型，在多语言语音生成与声音设计上的探索很有意思。',
   },
   {
     fullName: 'byoungd/up',
