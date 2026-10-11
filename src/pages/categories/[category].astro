@@ -22,27 +22,27 @@ const { category, posts } = Astro.props;
 <Layout title={`${category} | 分类`} description={`分类「${category}」下的文章`}>
   <section class="prose-custom py-8">
     <div class="mb-4">
-      <a href="/categories" class="text-xs uppercase tracking-widest text-zinc-400 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
+      <a href="/categories" class="text-xs md:text-sm uppercase tracking-wider text-zinc-400 hover:text-scholar-gold dark:hover:text-scholar-goldDark transition-colors">
         ← 全部分类
       </a>
     </div>
     <header class="mb-10">
       <h1 class="font-serif italic">{category}</h1>
-      <p class="text-sm text-zinc-500 italic">共 {posts.length} 篇文章</p>
+      <p class="text-base text-zinc-500 italic">共 {posts.length} 篇文章</p>
     </header>
 
     <ul class="mt-6 space-y-6">
       {posts.map((post) => (
         <li class="group">
           <a href={`/posts/${post.id}`} class="block">
-            <time class="text-[10px] uppercase tracking-widest text-zinc-400 font-mono">
+            <time class="text-xs md:text-sm uppercase tracking-wider text-zinc-400 font-mono">
               {post.data.pubDate.toISOString().slice(0, 10)}
             </time>
-            <h2 class="mt-1 font-serif text-xl text-ink dark:text-ink-dark group-hover:text-scholar-gold dark:group-hover:text-scholar-goldDark transition-colors">
+            <h2 class="mt-1 font-serif text-xl md:text-2xl text-ink dark:text-ink-dark group-hover:text-scholar-gold dark:group-hover:text-scholar-goldDark transition-colors">
               {post.data.title}
             </h2>
             {post.data.description && (
-              <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400 italic">
+              <p class="mt-1.5 text-base text-zinc-500 dark:text-zinc-400 italic">
                 {post.data.description}
               </p>
             )}
